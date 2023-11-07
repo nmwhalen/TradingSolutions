@@ -5,4 +5,5 @@
  * 
  */
 module TradingSolutions {
+	requires TwsApi;
 }
