@@ -1,5 +1,5 @@
 package com.tradingsolutions.main.api;
 
-public class IBReceiver {
+public class IBReceiver implements EWrapper{
 
 }
