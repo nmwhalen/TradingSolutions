@@ -9,6 +9,7 @@ public class Tick {
 	private double last;
 	private long modifiedAt;
 	private int lastTradeVolume;
+	private boolean shortable;
 	
 	public double getBid() {
 		return bid;
@@ -37,6 +38,10 @@ public class Tick {
 	public int getLastTradeVolume() {
 		return lastTradeVolume;
 	}
+	
+	public boolean getShortable() {
+		return shortable;
+	}
 
 	public void setBid(double bid) {
 		this.bid = bid;
@@ -64,6 +69,10 @@ public class Tick {
 	
 	public void setLastTradeVolume(int lastTradeVolume) {
 		this.lastTradeVolume = lastTradeVolume;
+	}
+	
+	public void setShortable(boolean shortable) {
+		this.shortable = shortable;
 	}
 	
 }

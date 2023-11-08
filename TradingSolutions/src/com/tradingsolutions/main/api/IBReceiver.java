@@ -44,7 +44,7 @@ public class IBReceiver implements EWrapper {
 	
 	@Override
 	public void connectAck() {
-		System.out.println("Connected.");
+		System.out.println("Connection Acknowledged.");
 	}
 	
 	@Override
@@ -72,6 +72,22 @@ public class IBReceiver implements EWrapper {
 	}
 	
 	@Override
+	public void tickGeneric(int tickerId, int tickType, double value) {
+		
+		if(tickType == 46)
+		{
+			Tick tick = ibDatastore.getLatestTick(tickerId);
+			if(value > 2.5)
+				tick.setShortable(true);
+			if(value > 1.5)
+				tick.setShortable(false);
+			else
+				tick.setShortable(true);
+		}
+		
+	}
+	
+	@Override
 	public void tickPrice(int tickerId, int field, double price, TickAttrib attribs) {
 		if (field != 1 && field != 2 && field != 4)
 			return;
@@ -90,6 +106,13 @@ public class IBReceiver implements EWrapper {
 
 		tick.setModifiedAt(System.currentTimeMillis());
 	}
+	
+	@Override
+	public void tickSize(int arg0, int arg1, Decimal arg2) {
+		// TODO Auto-generated method stub
+
+	}
+
 	
 	// -----------------------------------
 	// ------ Unimplemented Methods ------
@@ -487,12 +510,6 @@ public class IBReceiver implements EWrapper {
 	}
 
 	@Override
-	public void tickGeneric(int tickerId, int field, double value) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
 	public void tickNews(int arg0, long arg1, String arg2, String arg3, String arg4, String arg5) {
 		// TODO Auto-generated method stub
 
@@ -510,13 +527,7 @@ public class IBReceiver implements EWrapper {
 		// TODO Auto-generated method stub
 
 	}
-
-	@Override
-	public void tickSize(int arg0, int arg1, Decimal arg2) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
 	@Override
 	public void tickSnapshotEnd(int arg0) {
 		// TODO Auto-generated method stub

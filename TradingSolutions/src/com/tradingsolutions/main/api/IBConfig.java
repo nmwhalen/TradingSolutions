@@ -2,34 +2,24 @@ package com.tradingsolutions.main.api;
 
 public class IBConfig {
 
-	private final int clientId;
-	private final int port;
-	private final String ibAccount;
-	private final String ipAddress;
+	private final static int clientId = 1;
+	private final static int port = 7497;
+	private final static String ibAccount = "DU8079603";
+	private final static String ipAddress = "127.0.0.1";
 	
-	public IBConfig() {
-		
-		// Important configuration values
-		clientId = 1;
-		port = 7497;
-		ibAccount = "DU8079603";
-		ipAddress = "127.0.0.1";
-		
-	}
-
-	public int getClientId() {
+	public static int getClientid() {
 		return clientId;
 	}
 
-	public int getPort() {
+	public static int getPort() {
 		return port;
 	}
-	
-	public String getIBAccount() {
+
+	public static String getIbaccount() {
 		return ibAccount;
 	}
-	
-	public String getIPAddress() {
+
+	public static String getIpaddress() {
 		return ipAddress;
 	}
 }
